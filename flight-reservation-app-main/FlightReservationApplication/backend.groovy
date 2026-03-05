@@ -1,12 +1,15 @@
 pipeline{
     agent any
+
     stages{
+
         stage('code-pull'){
             steps{
                 git branch: 'main', url: 'https://github.com/sohebpathhan/Major_proj.git'
             }
         }
-          stage('code-Build'){
+
+        stage('code-Build'){
             steps{
                 sh '''
                 cd flight-reservation-app-main/FlightReservationApplication
@@ -14,19 +17,19 @@ pipeline{
                 '''
             }
         }
-        stage('QA_TEst'){
-            steps{
-               withSonarQubeEnv(installationName: 'Sonar', credentialsId: 'Sonar_cred') {
-                      sh '''
-                      cd flight-reservation-app-main/FlightReservationApplication
-                      mvn sonar:sonar -Dsonar.projectKey=flight-reservation
-                       '''
 
-                      }
+        stage('QA_Test'){
+            steps{
+                withSonarQubeEnv(installationName: 'Sonar', credentialsId: 'Sonar_cred') {
+                    sh '''
+                    cd flight-reservation-app-main/FlightReservationApplication
+                    mvn sonar:sonar -Dsonar.projectKey=flight-reservation
+                    '''
+                }
             }
         }
 
-         stage('Docker-Build'){
+        stage('Docker-Build'){
             steps{
                 sh '''
                 cd flight-reservation-app-main/FlightReservationApplication
@@ -35,14 +38,16 @@ pipeline{
                 docker rmi sohebpathhan/flight_resor:latest
                 '''
             }
+        }
 
-    }
-     stage('Deploy_stage'){
+        stage('Deploy_stage'){
             steps{
                 sh '''
-               cd flight-reservation-app-main/FlightReservationApplication
-               kubectl apply -f k8s/
-               '''
+                cd flight-reservation-app-main/FlightReservationApplication
+                kubectl apply -f k8s/
+                '''
             }
         }
+
+    }
 }
