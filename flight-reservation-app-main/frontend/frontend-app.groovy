@@ -1,29 +1,27 @@
 pipeline{
-    agent any
     stages{
-        stage('Code-pull'){
-            steps{
-                git branch: 'main', url: 'https://github.com/mayurmwagh/flight-reservation-app.git'                
+        stage('code-pull'){
+            steps{  
+                git branch: 'main', url: 'https://github.com/sohebpathhan/Major_proj.git'
+           }
+        }
+          stage('code-build'){
+            steps{  
+                sh '''
+                cd flight-reservation-app-main/frontend
+                npm install
+                npm run build
+                '''
+           }
+        }
+          stage('code-deploy'){
+            steps{  
+                sh '''
+                cd flight-reservation-app-main/frontend
+                aws s3 sync dist/ s3://pro-frontend-project-bux/
+                '''
 
-            }
+           }
         }
-        stage('Code-Build'){
-            steps{
-                sh '''
-                    cd frontend
-                    npm install 
-                    npm run build
-                '''
-            }
-        }
-        stage('Deploy'){
-            steps{
-                sh '''
-                    cd frontend
-                    aws s3 sync dist/ s3://cblkdfsfdsc-front12end-project-bux
-                '''
-            }
-        }
-        
     }
 }
