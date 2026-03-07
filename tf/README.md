@@ -548,6 +548,12 @@ infracost breakdown --path .
 
 ---
 
+## 👨‍💻 Project Creator
+
+This Infrastructure as Code configuration is created and maintained by you for deploying the Flight Reservation & Check-In system on AWS.
+
+---
+
 **Last Updated:** March 2026  
 **Version:** 1.0.0
 **Terraform Version Required:** >= 1.0

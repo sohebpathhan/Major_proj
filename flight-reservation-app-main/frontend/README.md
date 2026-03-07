@@ -711,5 +711,11 @@ npm run lint --fix
 
 ---
 
+## 👨‍💻 Project Creator
+
+This frontend application is created and maintained by you as part of the Flight Reservation & Check-In system.
+
+---
+
 **Last Updated:** March 2026  
 **Version:** 1.0.0

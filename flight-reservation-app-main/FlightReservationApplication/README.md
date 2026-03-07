@@ -835,5 +835,11 @@ Key dependencies managed by Maven:
 
 ---
 
+## 👨‍💻 Project Creator
+
+This Flight Reservation Service is created and maintained by you as part of the complete flight management system.
+
+---
+
 **Last Updated:** March 2026  
 **Version:** 1.0.0

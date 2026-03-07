@@ -830,21 +830,9 @@ pipeline {
 
 ---
 
-## 📄 License
+## �‍💻 Project Creator
 
-This project is licensed under the MIT License - see LICENSE file for details.
-
----
-
-## 👨‍💼 Project Author
-
-**Shivam** - Full Stack Developer
-
----
-
-## 📞 Support & Contact
-
-For issues, questions, or suggestions, please create an issue in the repository or contact the development team.
+This project is created and maintained by you for the Flight Reservation & Check-In system.
 
 ---
 
